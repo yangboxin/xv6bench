@@ -7,7 +7,7 @@
 int iter,flag;
 
 void reporter(){
-    printf("%d\n",iter);
+    printf("iteration: %d\n",iter);
     flag=1;
     sigreturn();
 }
