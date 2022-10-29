@@ -105,22 +105,13 @@ sys_sigalarm(void)
   uint64 handler;
 
   argint(0, &interval);
-  argaddr(0, &handler);
+  argaddr(1, &handler);
 
-  struct proc *p=myproc();
-
-  p->alarm_interval=interval;
-  p->alarm_handler=handler;
-  return 0;
+  return sigalarm(interval, (void(*)())(handler));
 }
 
 uint64
 sys_sigreturn(void)
 {
-  struct proc *p=myproc();
-  memmove(p->trapframe,p->alarm_trapframe,sizeof(struct trapframe));
-  p->alarm_passed=0;
-  p->alarm_interval=0;
-  p->alarm_handler=0;
-  return 0;
+  return sigreturn();
 }

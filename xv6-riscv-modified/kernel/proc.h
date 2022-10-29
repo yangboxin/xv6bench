@@ -107,7 +107,8 @@ struct proc {
 
   // sigalarm related
   int alarm_interval;          // alarm interval (ticks)
-  int alarm_passed;            // ticks passed since last call
-  uint64 alarm_handler;        // pointer to the alarm handler function
+  int alarm_ticks;            // ticks passed since last call
+  void (*alarm_handler)();        // alarm handler function
+  int alarm_goingoff;             // prevent re-entrance
   struct trapframe *alarm_trapframe;      // trapframe to resume after return
 };
