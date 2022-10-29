@@ -105,7 +105,7 @@ sys_sigalarm(void)
   uint64 handler;
 
   argint(0, &interval);
-  argaddr(1, &handler);
+  argaddr(0, &handler);
 
   struct proc *p=myproc();
 
@@ -121,6 +121,6 @@ sys_sigreturn(void)
   memmove(p->trapframe,p->alarm_trapframe,sizeof(struct trapframe));
   p->alarm_passed=0;
   p->alarm_interval=0;
-  p->alarm_on=0;
+  p->alarm_handler=0;
   return 0;
 }
