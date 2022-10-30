@@ -42,7 +42,10 @@ int main(int argc, char * argv[]){
     sigalarm(duration,reporter);
     while(flag!=1){
         arithint1();
-        iterpp();
+    // staight iter++ won't work and i have no idea why.
+    // This was supposed to be a debug hook but it worked       
+        iterpp(); 
+        //iter=iter+1; 
     }
     sigalarm(0,0);
     return 0;
