@@ -4,10 +4,10 @@
 #include "kernel/riscv.h"
 #include "user/user.h"
 
-long iter,flag;
+unsigned long iter,flag;
 
 void reporter(){
-    printf("%d\n",iter);
+    printf("%l\n",iter);
     flag=1;
     sigreturn();
 }
