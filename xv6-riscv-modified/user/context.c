@@ -5,12 +5,12 @@
 #include "user/user.h"
 
 
-int iter,flag; /* global variables */
+unsigned long iter,flag; /* global variables */
 
 /* function that return result */
 void reporter() 
 {
- printf("%d\n", iter);
+ printf("%l\n", iter);
  flag=1;
  sigreturn();
 }
