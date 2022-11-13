@@ -6,12 +6,12 @@
 
 
 /* global variables */
-int	iter,flag;
+unsigned long	iter,flag;
 
 /* function that return result */
 void reporter()
 {
- printf("%d\n", iter);
+ printf("%l\n", iter);
  flag = 1;
  sigreturn();
 }
