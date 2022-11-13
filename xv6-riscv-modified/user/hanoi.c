@@ -9,14 +9,14 @@
 void mov(int n, int f, int t);
 
 /* global variables */
-int	iter,flag;
+unsigned long	iter,flag;
 int	num[4];
 long	cnt;
 
 /* function that return result */
 void reporter() 
 {
- printf("iteration:%d\n", iter);
+ printf("iteration:%l\n", iter);
  flag = 1;
  sigreturn();
 }
